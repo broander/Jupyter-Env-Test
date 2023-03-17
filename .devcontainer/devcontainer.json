@@ -1,0 +1,125 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/python-3-anaconda
+{
+	"name": "Miniconda (Python3)",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile",
+	},
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"python.defaultInterpreterPath": "/opt/conda/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.autopep8Path": "/opt/conda/bin/autopep8",
+				"python.formatting.yapfPath": "/opt/conda/bin/yapf",
+				"python.formatting.blackPath": "/opt/conda/bin/black",
+				"python.linting.flake8Path": "/opt/conda/bin/flake8",
+				"python.linting.pycodestylePath": "/opt/conda/bin/pycodestyle",
+				"python.linting.pydocstylePath": "/opt/conda/bin/pydocstyle",
+				"python.linting.pylintPath": "/opt/conda/bin/pylint",
+				"python.formatting.provider": "black",
+				"editor.formatOnSave": true,
+				"python.formatting.blackArgs": [
+					"--line-length",
+					"79"
+				],
+				"files.insertFinalNewline": true,
+				"files.trimFinalNewlines": true,
+				"editor.rulers": [
+					80
+				],
+				"python.testing.pytestEnabled": true,
+				"[html]": {
+					"editor.tabSize": 2,
+				},
+				"[javascript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode",
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode",
+				},
+				"[python]": {
+					"editor.tabSize": 4,
+					"editor.formatOnType": true,
+					"editor.defaultFormatter": "ms-python.black-formatter",
+				},
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"blinkshellinc.blink-fs",
+				"ms-vscode-remote.vscode-remote-extensionpack",
+				"ms-toolsai.jupyter",
+				"jaydenlin.ctags-support",
+				"ms-mssql.data-workspace-vscode",
+				"dbaeumer.vscode-eslint",
+				"GrapeCity.gc-excelviewer",
+				"skyapps.fish-vscode",
+				"donjayamanne.git-extension-pack",
+				"donjayamanne.githistory",
+				"codezombiech.gitignore",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ZainChen.json",
+				"ms-toolsai.jupyter-keymap",
+				"ms-toolsai.jupyter-renderers",
+				"ziyasal.vscode-open-in-github",
+				"mohsen1.prettify-json",
+				"HardeepSingh.pyscript",
+				"donjayamanne.python-environment-manager",
+				"ms-vscode.remote-repositories",
+				"mutantdino.resourcemonitor",
+				"ms-mssql.sql-bindings-vscode",
+				"ms-mssql.sql-database-projects-vscode",
+				"ms-mssql.mssql",
+				"mtxr.sqltools",
+				"ms-vscode.test-adapter-converter",
+				"hbenl.vscode-test-explorer",
+				"malmaud.tmux",
+				"rbbit.typescript-hero",
+				"sendhil.vscode-file-explorer-menu",
+				"redhat.vscode-xml",
+				"redhat.vscode-yaml",
+				"foxundermoon.shell-format",
+				"shakram02.bash-beautify",
+				"timonwong.shellcheck",
+				"julialang.language-julia",
+				"vscodevim.vim",
+				"jdinhlife.gruvbox",
+				"GitHub.copilot",
+			]
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		6080, // port for accessing fluxbox desktop
+		8888, // port for accessing jupyter server
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "chmod +x ./.devcontainer/developer_tools.sh && bash -i ./.devcontainer/developer_tools.sh",
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/sshd": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/desktop-lite": {
+			"version": "latest"
+		},
+		// "ghcr.io/devcontainers/features/docker-in-docker": {
+		// 	"version": "latest"
+		// },
+	}
+}

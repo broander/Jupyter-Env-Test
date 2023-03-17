@@ -1,0 +1,32 @@
+name: base
+channels:
+  - conda-forge
+  - default
+dependencies:
+  - powerline-status
+  - prompt_toolkit
+  - pygments
+  - python
+  - black
+  - pylint
+  - mypy
+  - mock
+  - pytest
+  - ipython
+  - ipdb
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - scipy
+  - plotly
+  - seaborn
+  - jupyter
+  - flask
+  - xlsxwriter
+  - pyyaml
+  - yamllint
+  - yq
+  - shyaml
+  - altair
+  - vega_datasets
