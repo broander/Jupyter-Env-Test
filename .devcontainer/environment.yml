@@ -6,6 +6,7 @@ dependencies:
   - powerline-status
   - prompt_toolkit
   - pygments
+  - vim
   - python
   - black
   - pylint

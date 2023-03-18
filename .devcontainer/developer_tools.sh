@@ -106,10 +106,10 @@ fish omf install bobthefish
 # fix permissions issue that crops up
 #sudo chown -R vscode /opt/conda/lib/python3.10/site-packages/*
 #sudo chown -R vscode /opt/conda/lib/*
-conda install -n base -c conda-forge -y mamba
+#conda install -n base -c conda-forge -y mamba
 #mamba update -n base -y mamba
 #mamba update -n base -y conda
-mamba install -n base -c conda-forge -y vim
+#mamba install -n base -c conda-forge -y vim
 #mamba update -n base -c conda-forge -y ncurses
 
 # Vundle for VIM
@@ -170,7 +170,7 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 # cd ~ || exit
 
 # install additional conda env stuff
-#eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
+eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
 
 echo "Developer Requirements Installation Completed"
 sleep 3
