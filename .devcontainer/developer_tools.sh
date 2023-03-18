@@ -10,6 +10,10 @@ echo "Installing Developer Requirements"
 # make aliases expand and work in the script
 shopt -s expand_aliases
 
+# echo the workspace path and save as an environment variable
+echo "Devcontainer workspace path is $PWD"
+export DEVCONTAINER_WORKSPACE_PATH=$PWD
+
 #  Go to home directory for user
 cd ~ || exit
 
@@ -90,11 +94,11 @@ fish omf install bobthefish
 # fix permissions issue that crops up
 #sudo chown -R vscode /opt/conda/lib/python3.10/site-packages/*
 #sudo chown -R vscode /opt/conda/lib/*
-#conda install -n base -c conda-forge -y mamba
-mamba update -n base -y mamba
-mamba update -n base -y conda
+conda install -n base -c conda-forge -y mamba
+#mamba update -n base -y mamba
+#mamba update -n base -y conda
 mamba install -n base -c conda-forge -y vim
-mamba update -n base -c conda-forge -y ncurses
+#mamba update -n base -c conda-forge -y ncurses
 
 # Vundle for VIM
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -120,6 +124,7 @@ rustup update stable
 # install deb package, less to download
 curl -LO https://github.com/ClementTsang/bottom/releases/download/0.8.0/bottom_0.8.0_amd64.deb
 sudo dpkg -i bottom_0.8.0_amd64.deb
+rm bottom_0.8.0_amd64.deb
 
 # Install Universal Ctags
 mkdir ~/Github
@@ -153,7 +158,7 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 # cd ~ || exit
 
 # install additional conda env stuff
-eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
+#eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
 
 echo "Developer Requirements Installation Completed"
 sleep 3
