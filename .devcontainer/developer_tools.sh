@@ -110,6 +110,7 @@ sudo npm install -g vim-language-server
 # install YTOP system performance tool; requires rust
 # install rust first
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+source "$HOME/.cargo/env"
 # not being maintained, trying alternative below
 # ./.cargo/bin/cargo install ytop
 rustup update stable
