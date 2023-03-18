@@ -9,7 +9,7 @@
 
 # first update the base install to be up-to-date
 echo "updating base conda environment"
-mamba update -n base -y --all
+#mamba update -n base -y --all
 mamba install -c conda-forge jupyterlab
 
 # now create a clone of base environment
