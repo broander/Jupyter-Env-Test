@@ -18,7 +18,7 @@ mamba create --name altair --clone base
 
 # make sure the clone is up-to-date
 echo "updating 'altair' environment"
-mamba update -n altair -y --all
+#mamba update -n altair -y --all
 
 # install additional packages in the new cloned env
 echo "installing additional packages in 'altair' environment"
