@@ -31,4 +31,5 @@ dependencies:
   # - scipy
   # - scikit-learn
   # - jupyter
+  # - jupyterlab
   # - beautifulsoup4
