@@ -12,12 +12,16 @@
 		"codespaces": {
 			"repositories": {
 				"broander/dotfiles": {
-					"permissions": "write-all",
-					"permissions": "read-all",
+					"permissions": [
+						"write-all",
+						"read-all",
+						],
 				},
 				"broander/standard-dev-container": {
-					"permissions": "write-all",
-					"permissions": "read-all",
+					"permissions": [
+						"write-all",
+						"read-all",
+						],
 				},
 			}
 		},
