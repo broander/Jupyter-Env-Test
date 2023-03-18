@@ -170,7 +170,7 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 # cd ~ || exit
 
 # install additional conda env stuff
-eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
+eval "$DEVCONTAINER_WORKSPACE_PATH/.devcontainer/conda-env-setup.sh"
 
 echo "Developer Requirements Installation Completed"
 sleep 3
