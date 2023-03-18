@@ -113,8 +113,13 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 source "$HOME/.cargo/env"
 # not being maintained, trying alternative below
 # ./.cargo/bin/cargo install ytop
+# install btm
 rustup update stable
-cargo install bottom --locked
+# install with rust
+# cargo install bottom --locked
+# install deb package, less to download
+curl -LO https://github.com/ClementTsang/bottom/releases/download/0.8.0/bottom_0.8.0_amd64.deb
+sudo dpkg -i bottom_0.8.0_amd64.deb
 
 # Install Universal Ctags
 mkdir ~/Github
