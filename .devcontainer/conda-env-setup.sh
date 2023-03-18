@@ -22,4 +22,4 @@ mamba update -n altair -y --all
 
 # install additional packages in the new cloned env
 echo "installing additional packages in 'altair' environment"
-mamba install -n altair -y altair vega_datasets altair_viewer jupyter
+mamba install -n altair -y altair vega_datasets altair_viewer jupyterlab
