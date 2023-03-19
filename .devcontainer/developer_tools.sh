@@ -17,6 +17,8 @@ export DEVCONTAINER_WORKSPACE_PATH=$PWD
 #  Go to home directory for user
 cd ~ || exit
 
+conda init
+
 echo "Developer Requirements Installation Completed"
 sleep 3
 
