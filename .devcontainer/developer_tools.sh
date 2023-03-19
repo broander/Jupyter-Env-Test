@@ -10,6 +10,10 @@ echo "Installing Developer Requirements"
 # make aliases expand and work in the script
 shopt -s expand_aliases
 
+# echo the workspace path and save as an environment variable
+echo "Devcontainer workspace path is $PWD"
+export DEVCONTAINER_WORKSPACE_PATH=$PWD
+
 #  Go to home directory for user
 cd ~ || exit
 
@@ -17,10 +21,14 @@ cd ~ || exit
 # assumes .cfg is already in .gitignore, if not needs to be to avoid recursion problems
 #don't need this, git clone creates .cfg directory
 #git init --bare "$HOME"/.cfg
+# clone the dotfiles repository as a bare repository
 # clone dotfiles repository
-# repo is private, so url includes github PAT token
-git clone --bare https://github.com/broander/dotfiles.git "$HOME"/.cfg
-#moved next command to postCreateCommand commands so config is defined prior to running the alias below
+#git clone --bare https://github.com/broander/dotfiles.git "$HOME"/.cfg
+# clone with gh cli instead so can access private repo
+# requires that private repo be given access in devcontainer.json file and via
+# prompt on github website when creating the codespace for the first time
+gh repo clone broander/dotfiles "$HOME"/.cfg -- --bare
+# alias is also defined in bashrc, but need it here for the script to work
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 # stash any conflicting dotfiles so can checkout files from repo
@@ -28,9 +36,17 @@ config stash
 config checkout
 # copy good git config file for this repo so easy to commit config changes for dotfiles
 cp ~/.setup_config/backup-git-.cfg-config ~/.cfg/config
+
 # copy the github codespace ssh secret that's already configured in github
+# this will allow the 'config' git commands to work with the dotfiles repo
+mkdir ~/.ssh
 echo "$SSH_KEY_GITHUB" >~/.ssh/github
 chmod 600 ~/.ssh/github
+
+# clone the standard-dev-container repo so easier to push changes to it if needed
+mkdir ~/Github
+mkdir ~/Github/BuildClones
+gh repo clone broander/standard-dev-container ~/Github/standard-dev-container
 
 # add conda init info for shells
 conda init
@@ -91,10 +107,10 @@ fish omf install bobthefish
 #sudo chown -R vscode /opt/conda/lib/python3.10/site-packages/*
 #sudo chown -R vscode /opt/conda/lib/*
 #conda install -n base -c conda-forge -y mamba
-mamba update -n base -y mamba
-mamba update -n base -y conda
-mamba install -n base -c conda-forge -y vim
-mamba update -n base -c conda-forge -y ncurses
+#mamba update -n base -y mamba
+#mamba update -n base -y conda
+#mamba install -n base -c conda-forge -y vim
+#mamba update -n base -c conda-forge -y ncurses
 
 # Vundle for VIM
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -120,10 +136,9 @@ rustup update stable
 # install deb package, less to download
 curl -LO https://github.com/ClementTsang/bottom/releases/download/0.8.0/bottom_0.8.0_amd64.deb
 sudo dpkg -i bottom_0.8.0_amd64.deb
+rm bottom_0.8.0_amd64.deb
 
 # Install Universal Ctags
-mkdir ~/Github
-mkdir ~/Github/BuildClones
 cd ~ || exit
 cd Github || exit
 cd BuildClones || exit
@@ -153,7 +168,7 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer
 # cd ~ || exit
 
 # install additional conda env stuff
-eval "$CODESPACE_VSCODE_FOLDER/.devcontainer/conda-env-setup.sh"
+eval "$DEVCONTAINER_WORKSPACE_PATH/.devcontainer/conda-env-setup.sh"
 
 echo "Developer Requirements Installation Completed"
 sleep 3

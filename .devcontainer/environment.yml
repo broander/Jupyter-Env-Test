@@ -6,7 +6,8 @@ dependencies:
   - powerline-status
   - prompt_toolkit
   - pygments
-  - python
+  - vim
+  #- python
   - black
   - pylint
   - ipython
@@ -31,4 +32,5 @@ dependencies:
   # - scipy
   # - scikit-learn
   # - jupyter
+  # - jupyterlab
   # - beautifulsoup4
