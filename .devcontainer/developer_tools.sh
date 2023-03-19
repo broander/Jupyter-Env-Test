@@ -139,8 +139,6 @@ sudo dpkg -i bottom_0.8.0_amd64.deb
 rm bottom_0.8.0_amd64.deb
 
 # Install Universal Ctags
-mkdir ~/Github
-mkdir ~/Github/BuildClones
 cd ~ || exit
 cd Github || exit
 cd BuildClones || exit
