@@ -19,7 +19,7 @@ cd ~ || exit
 
 conda init
 
-conda install -n base ipykernel --update-deps --force-reinstall -y
+#conda install -n base ipykernel --update-deps --force-reinstall -y
 
 conda create --name test-env --clone base
 
