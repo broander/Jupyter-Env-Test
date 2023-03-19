@@ -3,23 +3,23 @@ channels:
   - conda-forge
   - default
 dependencies:
-  - powerline-status
-  - prompt_toolkit
-  - pygments
-  - vim
+  #- powerline-status
+  #- prompt_toolkit
+  #- pygments
+  #- vim
   #- python
-  - black
-  - pylint
-  - ipython
-  - ipdb
-  - ipykernel
-  - mypy
-  - mock
-  - pytest
-  - pyyaml
-  - yamllint
-  - yq
-  - shyaml
+  #- black
+  #- pylint
+  #- ipython
+  #- ipdb
+  #- ipykernel
+  #- mypy
+  #- mock
+  #- pytest
+  #- pyyaml
+  #- yamllint
+  #- yq
+  #- shyaml
   # - flask
   # - xlsxwriter
   # - pandas
