@@ -119,7 +119,7 @@
 		8888, // port for accessing jupyter server
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "chmod +x ./.devcontainer/developer_tools.sh && bash -i ./.devcontainer/developer_tools.sh",
+	"postCreateCommand": "",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
