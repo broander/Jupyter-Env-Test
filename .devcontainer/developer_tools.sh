@@ -21,7 +21,7 @@ conda init
 
 conda install -n base ipykernel --update-deps --force-reinstall
 
-conda create --name test-env --clone base
+conda create --name test-env --clone base -y
 
 echo "Developer Requirements Installation Completed"
 sleep 3
