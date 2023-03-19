@@ -7,7 +7,7 @@ dependencies:
   - prompt_toolkit
   - pygments
   - vim
-  - python
+  #- python
   - black
   - pylint
   - ipython
