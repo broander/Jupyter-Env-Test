@@ -23,6 +23,12 @@ conda install -n base ipykernel --update-deps --force-reinstall -y
 
 conda create --name test-env --clone base
 
+conda install -n test-env -c conda-forge -y mamba
+
+conda create --name test-env2 --clone test-env
+
+conda update -n test-env2 -c conda-forge -y --all
+
 echo "Developer Requirements Installation Completed"
 sleep 3
 
